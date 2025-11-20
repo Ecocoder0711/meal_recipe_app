@@ -10,7 +10,8 @@ class MealRecipeApp extends StatelessWidget {
     return MaterialApp(
       title: "Meal Recipe App",
       home: CategoryScreen(),
-      theme: Mytheme.brightnesstheme(context),
+      theme: Mytheme.colorscheme(context),
     );
   }
 }
+// categories: categorymodel[categorymodel.length]
