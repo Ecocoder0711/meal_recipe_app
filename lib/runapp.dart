@@ -10,7 +10,7 @@ class MealRecipeApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Meal Recipe App",
-      home: CategoryScreen(),
+      home: const CategoryScreen(),
       theme: Mytheme.colorscheme(context),
     );
   }
