@@ -8,6 +8,7 @@ class MealRecipeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Meal Recipe App",
       home: CategoryScreen(),
       theme: Mytheme.colorscheme(context),
