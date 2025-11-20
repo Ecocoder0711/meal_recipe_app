@@ -29,8 +29,8 @@ class CategoryScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               gradient: LinearGradient(
                 colors: [
-                  categories[index].color.withOpacity(0.55),
-                  categories[index].color.withOpacity(0.9),
+                  categories[index].color.withValues(alpha: 0.55),
+                  categories[index].color.withValues(alpha: 0.9),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
