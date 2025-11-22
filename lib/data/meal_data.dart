@@ -1,4 +1,4 @@
-import 'package:meal_recipe_app/model/meals_data.dart';
+import 'package:meal_recipe_app/model/meals_model.dart';
 
 List<Mealmodel> meals = [
   Mealmodel(
