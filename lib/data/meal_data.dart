@@ -6,7 +6,7 @@ List<Mealmodel> meals = [
     categories: ['1'],
     title: 'Masala Dosa',
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/9/9f/Dosa_at_Sri_Ganesha_Restauran_Bangkok_%287356%29.jpg',
+        'https://vismaifood.com/storage/app/uploads/public/8b4/19e/427/thumb__1200_0_0_0_auto.jpg',
     ingredients: [
       '3 Cups Rice',
       '1 Cup Urad Dal',
@@ -35,7 +35,7 @@ List<Mealmodel> meals = [
     categories: ['2', '3'], // Also fits Punjabi
     title: 'Paneer Butter Masala',
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/3/30/Paneer_Butter_Masala_02.jpg',
+        'https://www.cookwithmanali.com/wp-content/uploads/2019/05/Paneer-Butter-Masala.jpg',
     ingredients: [
       'Paneer',
       'Tomatoes',
@@ -59,14 +59,12 @@ List<Mealmodel> meals = [
     isVegan: false,
     isVegetarian: true,
   ),
-
-  // --- Category 3: Punjabi ---
   Mealmodel(
     id: 'm3',
     categories: ['3'],
     title: 'Sarson Da Saag',
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/c/c3/Sarson_da_saag_makki_di_roti.jpg',
+        'https://www.chefkunalkapur.com/wp-content/uploads/2021/03/Sarson-Ka-saag-new-recipe.jpg?v=1619450720',
     ingredients: ['Mustard Greens', 'Spinach', 'Maize Flour', 'Ginger', 'Ghee'],
     steps: [
       'Boil greens and mash them.',
@@ -81,14 +79,12 @@ List<Mealmodel> meals = [
     isVegan: false,
     isVegetarian: true,
   ),
-
-  // --- Category 4: Gujarati ---
   Mealmodel(
     id: 'm4',
     categories: ['4'],
     title: 'Khaman Dhokla',
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/6/6e/Khaman_Dhokla_01.jpg',
+        'https://www.indianhealthyrecipes.com/wp-content/uploads/2021/12/khaman-dhokla-recipe.jpg',
     ingredients: [
       'Gram Flour (Besan)',
       'Lemon Juice',
@@ -110,14 +106,11 @@ List<Mealmodel> meals = [
     isVegan: true,
     isVegetarian: true,
   ),
-
-  // --- Category 5: Hyderabadi Briyani ---
   Mealmodel(
     id: 'm5',
     categories: ['5'],
     title: 'Hyderabadi Veg Dum Biryani',
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/5/5a/Veg_Biryani.jpg',
+    imageUrl: 'https://i.ytimg.com/vi/Do7ZdUodDdw/maxresdefault.jpg',
     ingredients: [
       'Basmati Rice',
       'Mixed Vegetables',
@@ -139,14 +132,12 @@ List<Mealmodel> meals = [
     isVegan: false,
     isVegetarian: true,
   ),
-
-  // --- Category 6: Mughlai ---
   Mealmodel(
     id: 'm6',
     categories: ['6'],
     title: 'Malai Kofta',
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/0/02/Malai_Kofta.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsT8TUD-NzEQeESGXCTvbEFMbcMp-heDW-Kw&s',
     ingredients: ['Paneer', 'Potatoes', 'Cashews', 'Cream', 'Tomatoes'],
     steps: [
       'Make balls (koftas) of paneer and potato.',
@@ -157,19 +148,17 @@ List<Mealmodel> meals = [
     duration: 60,
     complexity: Complexity.hard,
     affordability: Affordability.luxurious,
-    isGlutenFree: false, // Usually added binder
+    isGlutenFree: false,
     isLactoseFree: false,
     isVegan: false,
     isVegetarian: true,
   ),
-
-  // --- Category 7: Rajasthani ---
   Mealmodel(
     id: 'm7',
     categories: ['7'],
     title: 'Dal Baati Churma',
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/3/3f/Dal_Bati_Churma.jpg',
+        'https://img-cdn.publive.online/fit-in/1200x675/filters:format(webp)/sanjeev-kapoor/media/media_files/4vWdXREXITODyLjtPAKy.jpg',
     ingredients: [
       'Wheat Flour',
       'Semolina',
@@ -191,14 +180,11 @@ List<Mealmodel> meals = [
     isVegan: false,
     isVegetarian: true,
   ),
-
-  // --- Category 8: Bengoli ---
   Mealmodel(
     id: 'm8',
     categories: ['8'],
     title: 'Luchi and Alur Dom',
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/f/fb/Luchi-Alur_Dom.jpg',
+    imageUrl: 'https://i.ytimg.com/vi/k197-CBCOMw/maxresdefault.jpg',
     ingredients: ['Maida', 'Potatoes', 'Mustard Oil', 'Panch Phoron', 'Tomato'],
     steps: [
       'Make puffy fried bread (Luchi).',
@@ -213,4 +199,232 @@ List<Mealmodel> meals = [
     isVegan: true,
     isVegetarian: true,
   ),
+  Mealmodel(
+    id: 'm9',
+    categories: ['1'],
+    title: 'Idli Sambar',
+    imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/1/11/Idli_Sambar.JPG',
+    ingredients: [
+      'Rice Rava',
+      'Urad Dal',
+      'Toor Dal',
+      'Drumsticks',
+      'Tamarind',
+      'Sambar Powder',
+    ],
+    steps: [
+      'Make batter and ferment.',
+      'Steam batter in idli molds.',
+      'Boil dal and vegetables.',
+      'Add tamarind and spices to make Sambar.',
+      'Serve hot.',
+    ],
+    duration: 30,
+    complexity: Complexity.simple,
+    affordability: Affordability.affordable,
+    isGlutenFree: true,
+    isLactoseFree: true,
+    isVegan: true,
+    isVegetarian: true,
+  ),
+
+  // Category 2: North Indian (and Punjabi)
+  //   Mealmodel(
+  //     id: 'm10',
+  //     categories: ['2', '3'],
+  //     title: 'Chole Bhature',
+  //     imageUrl:
+  //         'https://upload.wikimedia.org/wikipedia/commons/9/91/Chole_Bhature_at_Standard_Sweets_and_Restaurant.jpg',
+  //     ingredients: [
+  //       'Chickpeas',
+  //       'Maida (Flour)',
+  //       'Yogurt',
+  //       'Onions',
+  //       'Chole Masala',
+  //     ],
+  //     steps: [
+  //       'Soak and pressure cook chickpeas.',
+  //       'Prepare spicy gravy and mix chickpeas.',
+  //       'Knead dough for bhatura.',
+  //       'Deep fry bhatura.',
+  //       'Serve together.',
+  //     ],
+  //     duration: 60,
+  //     complexity: Complexity.hard,
+  //     affordability: Affordability.affordable,
+  //     isGlutenFree: false,
+  //     isLactoseFree: false,
+  //     isVegan: false,
+  //     isVegetarian: true,
+  //   ),
+
+  //   // Category 3: Punjabi
+  //   Mealmodel(
+  //     id: 'm11',
+  //     categories: ['3'],
+  //     title: 'Dal Makhani',
+  //     imageUrl:
+  //         'https://upload.wikimedia.org/wikipedia/commons/3/3c/Dal_Makhani_Bowl.jpg',
+  //     ingredients: [
+  //       'Whole Black Lentils',
+  //       'Red Kidney Beans',
+  //       'Butter',
+  //       'Cream',
+  //       'Tomato Puree',
+  //     ],
+  //     steps: [
+  //       'Soak lentils overnight.',
+  //       'Pressure cook until soft.',
+  //       'Prepare tadka with butter and tomatoes.',
+  //       'Simmer on low heat for hours.',
+  //       'Add cream.',
+  //     ],
+  //     duration: 90,
+  //     complexity: Complexity.challenging,
+  //     affordability: Affordability.pricey,
+  //     isGlutenFree: true,
+  //     isLactoseFree: false,
+  //     isVegan: false,
+  //     isVegetarian: true,
+  //   ),
+
+  //   // Category 4: Gujarati
+  //   Mealmodel(
+  //     id: 'm12',
+  //     categories: ['4'],
+  //     title: 'Methi Thepla',
+  //     imageUrl:
+  //         'https://upload.wikimedia.org/wikipedia/commons/1/1f/Methi_Thepla.jpg',
+  //     ingredients: [
+  //       'Wheat Flour',
+  //       'Fenugreek Leaves (Methi)',
+  //       'Yogurt',
+  //       'Spices',
+  //       'Oil',
+  //     ],
+  //     steps: [
+  //       'Mix flour, chopped methi and spices.',
+  //       'Knead soft dough with yogurt.',
+  //       'Roll thin flatbreads.',
+  //       'Cook on tawa with oil.',
+  //     ],
+  //     duration: 30,
+  //     complexity: Complexity.simple,
+  //     affordability: Affordability.affordable,
+  //     isGlutenFree: false,
+  //     isLactoseFree: false,
+  //     isVegan: false,
+  //     isVegetarian: true,
+  //   ),
+
+  //   // Category 5: Hyderabadi
+  //   Mealmodel(
+  //     id: 'm13',
+  //     categories: ['5'],
+  //     title: 'Mirchi Ka Salan',
+  //     imageUrl:
+  //         'https://upload.wikimedia.org/wikipedia/commons/9/90/Mirchi_ka_Salan.jpg',
+  //     ingredients: [
+  //       'Large Green Chilies',
+  //       'Peanuts',
+  //       'Sesame Seeds',
+  //       'Coconut',
+  //       'Tamarind',
+  //     ],
+  //     steps: [
+  //       'Fry chilies.',
+  //       'Roast and grind nuts for gravy base.',
+  //       'Cook gravy with tamarind pulp.',
+  //       'Add chilies and simmer.',
+  //     ],
+  //     duration: 40,
+  //     complexity: Complexity.challenging,
+  //     affordability: Affordability.affordable,
+  //     isGlutenFree: true,
+  //     isLactoseFree: true,
+  //     isVegan: true,
+  //     isVegetarian: true,
+  //   ),
+
+  //   // Category 6: Mughlai (and North Indian)
+  //   Mealmodel(
+  //     id: 'm14',
+  //     categories: ['6', '2'],
+  //     title: 'Shahi Paneer',
+  //     imageUrl:
+  //         'https://upload.wikimedia.org/wikipedia/commons/a/a8/Shahi_Paneer.jpg',
+  //     ingredients: ['Paneer', 'Yogurt', 'Cream', 'Onion Paste', 'Saffron'],
+  //     steps: [
+  //       'Sauté onion paste and spices.',
+  //       'Add whisked yogurt.',
+  //       'Add cream and saffron.',
+  //       'Add paneer cubes.',
+  //     ],
+  //     duration: 45,
+  //     complexity: Complexity.simple,
+  //     affordability: Affordability.pricey,
+  //     isGlutenFree: true,
+  //     isLactoseFree: false,
+  //     isVegan: false,
+  //     isVegetarian: true,
+  //   ),
+
+  //   // Category 7: Rajasthani
+  //   Mealmodel(
+  //     id: 'm15',
+  //     categories: ['7'],
+  //     title: 'Gatte Ki Sabzi',
+  //     imageUrl:
+  //         'https://upload.wikimedia.org/wikipedia/commons/1/19/Gatte_ki_sabzi.jpg',
+  //     ingredients: [
+  //       'Gram Flour (Besan)',
+  //       'Yogurt',
+  //       'Spices',
+  //       'Asafoetida',
+  //       'Ghee',
+  //     ],
+  //     steps: [
+  //       'Make stiff dough of besan.',
+  //       'Boil dough rolls in water.',
+  //       'Cut into discs.',
+  //       'Cook in spicy yogurt gravy.',
+  //     ],
+  //     duration: 50,
+  //     complexity: Complexity.challenging,
+  //     affordability: Affordability.affordable,
+  //     isGlutenFree: false,
+  //     isLactoseFree: false,
+  //     isVegan: false,
+  //     isVegetarian: true,
+  //   ),
+
+  //   // Category 8: Bengali
+  //   Mealmodel(
+  //     id: 'm16',
+  //     categories: ['8'],
+  //     title: 'Macher Jhol (Fish Curry)',
+  //     imageUrl:
+  //         'https://upload.wikimedia.org/wikipedia/commons/6/6d/Macher_Jhol.jpg',
+  //     ingredients: [
+  //       'Rohu/Katla Fish',
+  //       'Potatoes',
+  //       'Mustard Oil',
+  //       'Cumin',
+  //       'Green Chilies',
+  //     ],
+  //     steps: [
+  //       'Marinate fish with turmeric and salt.',
+  //       'Lightly fry fish.',
+  //       'Make light gravy with potatoes.',
+  //       'Add fish and simmer.',
+  //     ],
+  //     duration: 40,
+  //     complexity: Complexity.challenging,
+  //     affordability: Affordability.pricey,
+  //     isGlutenFree: true,
+  //     isLactoseFree: true,
+  //     isVegan: false, // It is fish
+  //     isVegetarian: false,
+  //   ),
 ];
