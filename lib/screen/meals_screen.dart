@@ -18,7 +18,92 @@ class Mealscreen extends StatelessWidget {
         itemCount: filteredMeals.length,
         itemBuilder: (context, index) {
           final meal = filteredMeals[index];
-          return Container(child: Image.network(meal.imageUrl));
+          return Card(
+            clipBehavior: Clip.hardEdge,
+            elevation: 2,
+            child: Stack(
+              children: [
+                Image.network(meal.imageUrl, fit: BoxFit.cover),
+                Positioned(
+                  left: 0,
+                  bottom: 0,
+                  right: 0,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 40),
+                    color: Colors.black54,
+                    child: Column(
+                      children: [
+                        Text(
+                          meal.title,
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.timelapse_outlined,
+                                  color: Colors.white,
+                                  size: 20,
+                                  semanticLabel: 'Duration',
+                                ),
+                                Text(
+                                  '${meal.duration} ',
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.article_outlined,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                                Text(
+                                  meal.complexity.name,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.currency_rupee,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                                Text(
+                                  meal.affordability.name,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
         },
       ),
     );
