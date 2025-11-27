@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal_recipe_app/data/meal_data.dart';
+import 'package:meal_recipe_app/widget/item_trait.dart';
 
 class Mealscreen extends StatelessWidget {
   final String title;
@@ -44,56 +45,17 @@ class Mealscreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Row(
-                              children: [
-                                const Icon(
-                                  Icons.timelapse_outlined,
-                                  color: Colors.white,
-                                  size: 20,
-                                  semanticLabel: 'Duration',
-                                ),
-                                Text(
-                                  '${meal.duration} ',
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
+                            ItemTrait(
+                              text: '${meal.duration}',
+                              icon: Icons.timelapse_outlined,
                             ),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.article_outlined,
-                                  color: Colors.white,
-                                  size: 20,
-                                ),
-                                Text(
-                                  meal.complexity.name,
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
+                            ItemTrait(
+                              text: meal.complexity.name,
+                              icon: Icons.article_outlined,
                             ),
-                            Row(
-                              children: [
-                                const Icon(
-                                  Icons.currency_rupee,
-                                  color: Colors.white,
-                                  size: 20,
-                                ),
-                                Text(
-                                  meal.affordability.name,
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
+                            ItemTrait(
+                              text: meal.affordability.name,
+                              icon: Icons.currency_rupee,
                             ),
                           ],
                         ),
