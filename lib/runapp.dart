@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meal_recipe_app/screen/category_screen.dart';
+import 'package:meal_recipe_app/screen/homescreen.dart';
 import 'package:meal_recipe_app/utils/theme_data.dart';
 
 class MealRecipeApp extends StatelessWidget {
@@ -10,7 +10,7 @@ class MealRecipeApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Meal Recipe App",
-      home: const CategoryScreen(),
+      home: Homescreen(),
       theme: Mytheme.colorscheme(context),
     );
   }

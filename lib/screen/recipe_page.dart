@@ -1,14 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meal_recipe_app/model/meals_model.dart';
+import 'package:meal_recipe_app/provider/favorites_provider.dart';
 
-class RecipePage extends StatelessWidget {
+class RecipePage extends ConsumerWidget {
   final Mealmodel meal;
-  const RecipePage({required this.meal, super.key});
-
+  const RecipePage({super.key, required this.meal});
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<Mealmodel> favouriteMeals = ref.watch(favoriteMealsProvider);
+    final isFav = favouriteMeals.contains(meal);
     return Scaffold(
-      appBar: AppBar(title: Text(meal.title)),
+      appBar: AppBar(
+        title: Text(meal.title),
+        actions: [
+          IconButton(
+            onPressed: () {
+              ref.read(favoriteMealsProvider.notifier).toggleMealFavState(meal);
+            },
+            icon: Icon(
+              isFav ? Icons.favorite_rounded : Icons.favorite_border,
+              color: isFav ? Colors.redAccent : Colors.white,
+            ),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
