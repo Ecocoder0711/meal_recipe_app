@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meal_recipe_app/model/meals_model.dart';
 import 'package:meal_recipe_app/provider/favorites_provider.dart';
+import 'package:meal_recipe_app/widget/snackbar.dart';
 
 class RecipePage extends ConsumerWidget {
   final Mealmodel meal;
@@ -16,7 +17,10 @@ class RecipePage extends ConsumerWidget {
         actions: [
           IconButton(
             onPressed: () {
-              ref.read(favoriteMealsProvider.notifier).toggleMealFavState(meal);
+              bool wasAdded = ref
+                  .read(favoriteMealsProvider.notifier)
+                  .toggleMealFavState(meal);
+              showFavoriteSnackbar(context, wasAdded);
             },
             icon: Icon(
               isFav ? Icons.favorite_rounded : Icons.favorite_border,

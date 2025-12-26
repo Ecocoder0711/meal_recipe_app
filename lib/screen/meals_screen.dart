@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meal_recipe_app/data/meal_data.dart';
 import 'package:meal_recipe_app/screen/recipe_page.dart';
 import 'package:meal_recipe_app/widget/item_trait.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class Mealscreen extends StatelessWidget {
   final String title;
@@ -30,7 +31,22 @@ class Mealscreen extends StatelessWidget {
               elevation: 2,
               child: Stack(
                 children: [
-                  Image.network(meal.imageUrl, fit: BoxFit.cover),
+                  // SizedBox(width: double.infinity, height: 200),
+                  FadeInImage(
+                    placeholder: MemoryImage(
+                      kTransparentImage,
+                    ), // Requires transparent_image package, or use a local asset
+                    image: NetworkImage(meal.imageUrl),
+                    fit: BoxFit.cover,
+                    height: 200, // Fixed height for consistency
+                    width: double.infinity, // Full width of the card
+                  ),
+                  // Image.network(
+                  //   meal.imageUrl,
+                  //   fit: BoxFit.cover,
+                  //   height: 280,
+                  //   width: double.infinity,
+                  // ),
                   Positioned(
                     left: 0,
                     bottom: 0,
