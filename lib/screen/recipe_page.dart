@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meal_recipe_app/model/meals_model.dart';
 import 'package:meal_recipe_app/provider/favorites_provider.dart';
 import 'package:meal_recipe_app/widget/snackbar.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class RecipePage extends ConsumerWidget {
   final Mealmodel meal;
@@ -73,16 +74,39 @@ class RecipePage extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 10),
-            // ... means we are using spread opearators
-            ...meal.ingredients.map((item) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 6,
-                ),
-                child: Text(item, style: TextStyle(color: Colors.white70)),
-              );
-            }),
+            // Each ingredient types out on its own line, one after another
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: meal.ingredients.asMap().entries.map((entry) {
+                  int index = entry.key;
+                  String item = entry.value;
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: AnimatedTextKit(
+                      key: ValueKey(index),
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                          "• $item",
+                          textStyle: const TextStyle(
+                            color: Colors.white70,
+                            fontSize: 16,
+                          ),
+                          speed: const Duration(milliseconds: 100),
+                        ),
+                      ],
+                      totalRepeatCount: 1,
+                      pause: Duration(
+                        milliseconds: index * 800,
+                      ), // Delay based on index
+                      displayFullTextOnTap: true,
+                      isRepeatingAnimation: false,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
             const SizedBox(height: 10),
             const Text(
               "Steps",
@@ -93,19 +117,52 @@ class RecipePage extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 10),
-            ...meal.steps.map((step) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 6.0,
-                ),
-                child: Text(
-                  step,
-                  style: TextStyle(color: Colors.white70),
-                  textAlign: TextAlign.center,
-                ),
-              );
-            }),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: meal.steps.asMap().entries.map((entry) {
+                  int stepindex = entry.key;
+                  String stepitem = entry.value;
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: AnimatedTextKit(
+                      key: ValueKey(stepindex),
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                          "• $stepitem",
+                          textStyle: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 16,
+                          ),
+                          speed: const Duration(milliseconds: 100),
+                        ),
+                      ],
+                      totalRepeatCount: 1,
+                      pause: Duration(
+                        milliseconds: stepindex * 800,
+                      ), // Delay based on index
+                      displayFullTextOnTap: true,
+                      isRepeatingAnimation: false,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+
+            // ...meal.steps.map((step) {
+            //   return Padding(
+            //     padding: const EdgeInsets.symmetric(
+            //       horizontal: 10,
+            //       vertical: 6.0,
+            //     ),
+            //     child: Text(
+            //       step,
+            //       style: TextStyle(color: Colors.white70),
+            //       textAlign: TextAlign.center,
+            //     ),
+            //   );
+            // }),
           ],
         ),
       ),
