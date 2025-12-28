@@ -18,7 +18,7 @@ class _CategoryScreenState extends State<CategoryScreen>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 800),
     );
     _animationController.forward();
   }
@@ -53,7 +53,7 @@ class _CategoryScreenState extends State<CategoryScreen>
                   curve: Interval(
                     (1 / categories.length) * index,
                     1.0,
-                    curve: Curves.fastOutSlowIn,
+                    curve: Curves.easeOutQuint,
                   ),
                 ),
               );
@@ -65,7 +65,7 @@ class _CategoryScreenState extends State<CategoryScreen>
                 child: Transform.translate(
                   offset: Offset(
                     0,
-                    50 * (1 - animation.value),
+                    100 * (1 - animation.value),
                   ), // Slide up effect
                   child: child,
                 ),
