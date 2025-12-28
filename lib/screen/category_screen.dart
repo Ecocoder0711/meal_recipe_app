@@ -2,9 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:meal_recipe_app/data/category_data.dart';
 import 'package:meal_recipe_app/screen/meals_screen.dart';
 
-class CategoryScreen extends StatelessWidget {
+class CategoryScreen extends StatefulWidget {
   // final CategoryModel categories; required this.categories
   const CategoryScreen({super.key});
+
+  @override
+  State<CategoryScreen> createState() => _CategoryScreenState();
+}
+
+class _CategoryScreenState extends State<CategoryScreen>
+    with TickerProviderStateMixin {
+  late AnimationController _animationController;
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,38 +46,64 @@ class CategoryScreen extends StatelessWidget {
           mainAxisSpacing: 20, // rows ke beech ka gap (vertical)
         ),
         children: List.generate(categories.length, (index) {
-          return InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Mealscreen(
-                    title: categories[index].title,
-                    catid: categories[index].id,
+          final Animation<double> animation =
+              Tween<double>(begin: 0.0, end: 1.0).animate(
+                CurvedAnimation(
+                  parent: _animationController,
+                  curve: Interval(
+                    (1 / categories.length) * index,
+                    1.0,
+                    curve: Curves.fastOutSlowIn,
                   ),
                 ),
               );
-            },
-            child: Container(
-              padding: const EdgeInsets.all(16),
-              // color: categories[index].color,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                gradient: LinearGradient(
-                  colors: [
-                    categories[index].color.withValues(alpha: 0.55),
-                    categories[index].color.withValues(alpha: 0.9),
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
+          return AnimatedBuilder(
+            animation: _animationController,
+            builder: (context, child) {
+              return FadeTransition(
+                opacity: animation,
+                child: Transform.translate(
+                  offset: Offset(
+                    0,
+                    50 * (1 - animation.value),
+                  ), // Slide up effect
+                  child: child,
                 ),
-              ),
-              child: Text(
-                categories[index].title,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.normal,
+              );
+            },
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Mealscreen(
+                      title: categories[index].title,
+                      catid: categories[index].id,
+                    ),
+                  ),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                // color: categories[index].color,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  gradient: LinearGradient(
+                    colors: [
+                      categories[index].color.withValues(alpha: 0.55),
+                      categories[index].color.withValues(alpha: 0.9),
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
+                child: Text(
+                  categories[index].title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
               ),
             ),

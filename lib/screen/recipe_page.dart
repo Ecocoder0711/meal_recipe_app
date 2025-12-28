@@ -13,8 +13,22 @@ class RecipePage extends ConsumerWidget {
     final isFav = favouriteMeals.contains(meal);
     return Scaffold(
       appBar: AppBar(
-        title: Text(meal.title),
+        title: Hero(
+          tag: '${meal.id}_text',
+          child: Material(
+            color: Colors.transparent,
+            child: Text(
+              meal.title,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
         actions: [
+          // Favorite icon button
           IconButton(
             onPressed: () {
               bool wasAdded = ref
@@ -22,9 +36,16 @@ class RecipePage extends ConsumerWidget {
                   .toggleMealFavState(meal);
               showFavoriteSnackbar(context, wasAdded);
             },
-            icon: Icon(
-              isFav ? Icons.favorite_rounded : Icons.favorite_border,
-              color: isFav ? Colors.redAccent : Colors.white,
+            icon: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              transitionBuilder: (child, animation) {
+                return ScaleTransition(scale: animation, child: child);
+              },
+              child: Icon(
+                isFav ? Icons.favorite_rounded : Icons.favorite_border,
+                key: ValueKey(isFav),
+                color: isFav ? Colors.redAccent : Colors.white,
+              ),
             ),
           ),
         ],

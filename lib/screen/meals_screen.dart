@@ -62,12 +62,18 @@ class Mealscreen extends StatelessWidget {
                       color: Colors.black54,
                       child: Column(
                         children: [
-                          Text(
-                            meal.title,
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                          Hero(
+                            tag: '${meal.id}_text',
+                            child: Material(
+                              color: Colors.transparent,
+                              child: Text(
+                                meal.title,
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                           ),
                           Row(
