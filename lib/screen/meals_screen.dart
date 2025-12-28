@@ -32,21 +32,24 @@ class Mealscreen extends StatelessWidget {
               child: Stack(
                 children: [
                   // SizedBox(width: double.infinity, height: 200),
-                  FadeInImage(
-                    placeholder: MemoryImage(
-                      kTransparentImage,
-                    ), // Requires transparent_image package, or use a local asset
-                    image: NetworkImage(meal.imageUrl),
-                    fit: BoxFit.cover,
-                    height: 200, // Fixed height for consistency
-                    width: double.infinity, // Full width of the card
-                  ),
-                  // Image.network(
-                  //   meal.imageUrl,
+                  // FadeInImage(
+                  //   placeholder: MemoryImage(
+                  //     kTransparentImage,
+                  //   ), // Requires transparent_image package, or use a local asset
+                  //   image: NetworkImage(meal.imageUrl),
                   //   fit: BoxFit.cover,
-                  //   height: 280,
-                  //   width: double.infinity,
+                  //   height: 200, // Fixed height for consistency
+                  //   width: double.infinity, // Full width of the card
                   // ),
+                  Hero(
+                    tag: filteredMeals[index].id, // needs a unique string
+                    child: Image.network(
+                      meal.imageUrl,
+                      fit: BoxFit.cover,
+                      height: 200,
+                      width: double.infinity,
+                    ),
+                  ),
                   Positioned(
                     left: 0,
                     bottom: 0,
